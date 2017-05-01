@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FootballFixturesApp1.Models.SearchViewModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("search")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table">
+   <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamOne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamTwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AReport)
+        </th>
+        <th></th>
+    </tr> 
+
+    @foreach (var item in Model)
+    {
+        <tr>
+ 
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamOne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamTwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AReport)
+            </td>
+          
+        </tr>
+    }
+
+</table>
